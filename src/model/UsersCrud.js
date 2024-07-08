@@ -1,7 +1,11 @@
-// axios module
+import axios from "axios";
 
-export function getAllUsers(){
+
+const url="http://localhost:4600/graphql";
+const getAllQuery="query{fetchUsers{_id, phone}}";
+export async function getAllUsers(){
     // backend request
+    return await axios.get(url+"?query="+getAllQuery)
 }
 
 /* export function addUser(){

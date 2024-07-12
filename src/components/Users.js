@@ -1,4 +1,4 @@
-import { getAllUsers, getUserById,addUser } from "../model/UsersCrud";
+import { getAllUsers, getUserById,addUser,updateUser } from "../model/UsersCrud";
 
 export function Users() {
     async function  getUsers(){
@@ -21,18 +21,23 @@ export function Users() {
           console.log(response);
      }
      async function  update(){
-     
+          const user={
+               "id":3,
+               "name":"Pravin Patil",
+               "email":"pravin@gmail.com",
+               "phone" :"9999999999"
+          }
+          const response=await updateUser(user);
+          console.log(response);
      }
-     async function  deleteUser(){
-     
-     }
+  
    return (
      <>
           <button onClick={getUsers}>GET ALL USERS</button> 
           <button onClick={getUser}>GET USER BY ID</button>
           <button onClick={addNewUser}>ADD NEW USER</button>
           <button onClick={update}>UPDATE USER</button>
-          <button onClick={deleteUser}>DELETE USER</button>
+         
      </>
    );
 }
